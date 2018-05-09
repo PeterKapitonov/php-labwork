@@ -9,73 +9,202 @@
 <body>
 	<?php 
 		
-	$arr=array('a','b','c');//задача 1
+//----------------------------------------------------TASK1                                                       
+	echo '<h3>Работа с if-else</h3><br><span>task1</span><div class="window">';
+		$a = 1;
+		if ($a == 0) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+	echo '</div><br>';
 	
-	echo '<span>task1</span><div class="window">';
-		var_dump($arr);
-			echo '</div><br>';
-	
-											//task2
+
+
+//--------------------------------------------------TASK2                                                       
 	echo '<span>task2</span><div class="window">';
-		echo $arr[0].'<br>';
-		echo $arr[1].'<br>';
-		echo $arr[2].'<br>';
+		$a = 1;
+		if ($a > 0) {
+			echo 'Верно<br>';
+		} else {
+			echo 'Неверно<br>';
+		}
+
+		$a = 0;
+		if ($a > 0) {
+			echo 'Верно<br>';
+		} else {
+			echo 'Неверно<br>';
+		}
+
+		$a = -3;
+		if ($a > 0) {
+			echo 'Верно<br>';
+		} else {
+			echo 'Неверно<br>';
+		}
 	echo '</div><br>';
 
 
 	
-	$arr = array('a', 'b', 'c', 'd');				//TASK3
+//----------------------------------------------------TASK3                                                       
 	echo '<span>task3</span><div class="window">';
-		echo $arr[0].'+'. $arr[1].', '.$arr[2].'+'.$arr[3]; 
+		$a = -1;
+		if ($a < 0) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
+	
 
 
-	$arr = array(2, 5, 3, 9);				//TASK4
+//----------------------------------------------------TASK4                                                       
 	echo '<span>task4</span><div class="window">';
-		echo $arr[0] * $arr[1] + $arr[2] * $arr[3]; 
+		$a = -0.1;
+		if ($a >= 0) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
+	
 
 
-	$arr = array();				//TASK5
+//----------------------------------------------------TASK5                                                       
 	echo '<span>task5</span><div class="window">';
-		$arr[] = 1;
-		$arr[] = 2;
-		$arr[] = 3;
-		$arr[] = 4;
-		$arr[] = 5;
-		var_dump($arr);
+		$a = 1;
+		if ($a <= 0) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
-	$arr = array('a'=>1, 'b'=>2, 'c'=>3);				//TASK6
+//----------------------------------------------------TASK6                                                       
 	echo '<span>task6</span><div class="window">';
-		echo $arr['c'];
+		$a = 1;
+		if ($a != 0) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
-	$arr = array('a'=>1, 'b'=>2, 'c'=>3);				//TASK7
+//----------------------------------------------------TASK7                                                       
 	echo '<span>task7</span><div class="window">';
-		echo $arr['a'] + $arr['b'] + $arr['c'];
+		$a = 'test';
+		if ($a == 'test') {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
-	$arr = array('Коля'=>'1000$', 'Вася'=>'500$', 'Петя'=>'200$');		//TASK8
+
+//----------------------------------------------------TASK8                                                       
 	echo '<span>task8</span><div class="window">';
-		echo $arr['Петя'].' '.$arr['Коля'];
+		$a = '1';
+		if ($a === '1') {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+
+		if ($a === 1) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
-	$arr = array(1=>'пн', 2=>'вт', 3=>'ср', 4=>'чт', 5=>'пт', 6=>'сб', 7=>'вс');//TASK9
+	
+
+//----------------------------------------------------TASK9                                                       
 	echo '<span>task9</span><div class="window">';
-		echo $arr[4];
+		$a = '';
+		if (empty($a)) {    //пустая
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
 
 
-//-------------------------------------------------------//TASK10
-	$arr = array(1=>'пн', 2=>'вт', 3=>'ср', 4=>'чт', 5=>'пт', 6=>'сб', 7=>'вс');
-	$day = 3;                                                          
+//----------------------------------------------------TASK10                                                       
 	echo '<span>task10</span><div class="window">';
-		echo $arr[$day];
+		$a = '';
+
+		if (!empty($a)) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
 	echo '</div><br>';
 
+//----------------------------------------------------TASK11                                                       
+	echo '<span>task11</span><div class="window">';
+		$a = 3;
+		if (isset($a)) {   //существует
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+	echo '</div><br>';
 
+//----------------------------------------------------TASK12                                                       
+	echo '<span>task12</span><div class="window">';
+		$a = 1;
+		if (!isset($a)) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+	echo '</div><br>';
+
+//----------------------------------------------------TASK13                                                       
+	echo '<span>task13</span><div class="window">';
+		$var = true;
+	
+		if ($var) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+	echo '</div><br>';
+
+//----------------------------------------------------TASK14                                                       
+	echo '<span>task14</span><div class="window">';
+			$var = true;
+		if (!$var) {
+			echo 'Верно';
+		} else {
+			echo 'Неверно';
+		}
+	echo '</div><br>';
+
+//----------------------------------------------------TASK19                                                       
+	echo '<span>task19</span><div class="window">';
+		$num = 3;
+	
+		switch ($num) {
+			case 1:
+				$result = 'зима';
+			break;
+			case 2:
+				$result = 'весна';
+			break;
+			case 3:
+				$result = 'лето';
+			break;
+			case 4:
+				$result = 'осень';
+			break;
+		}
+
+	echo $result;
+	echo '</div><br>';
 ?>
 </body>
 </html>

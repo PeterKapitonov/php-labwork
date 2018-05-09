@@ -1,9 +1,12 @@
+body{
+	padding: 40px;
+}
 .otstyp{
 	margin: 30px;
 }
 .window{
 	width: 550px;
-	height: 300px;
+	height: 100px;
 	border: 2px solid #000;
 	padding: 20px;
 	

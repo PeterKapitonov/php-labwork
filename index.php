@@ -8,8 +8,8 @@
 </head>
 <body>
 	                   
-	<h3>Задачи на пользовательские функции</h3><br>
-	<span>task1.</span>
+	<h3>Задачи на приемы работы с флагами на PHP</h3><br>
+	<span>task1.Проверка что в массиве есть введённое число</span>
 	<div class="window">
 		<form action="" method="GET">
 			<input type="text" name="num1" placeholder="Введите число"><br>
@@ -18,77 +18,73 @@
 <?php
 	if (isset($_REQUEST['submit1'])) {
 		$num = $_REQUEST['num1'];
-		echo 'квадрат числа '.$num.' равен: '.func1($num);
-
 	}
-	function func1($num){
-		return  $num*$num;
+
+	$arr = array(1, 4, 6, 10, 11, 5, 8);
+	foreach ($arr as $elem) {
+		if ($elem == $num) {
+			$flag = true;
+			break;
+		}else{
+			$flag = false;
+		}
+	}
+
+	if ($flag == true) {
+		echo 'есть';
+	} else {
+		echo 'нет';
 	}
 ?>
 	</div><br>
 
 
 <!--      -------- Task2-----------         -->
-	<span>task2.</span>
+	<span>task2.Проверка что число простое</span>
 	<div class="window">
 		<form action="" method="GET">
-			<input type="text" name="num2-1" placeholder="Введите число"><br>
-			<input type="text" name="num2-2" placeholder="Введите число"><br>
+			<input type="text" name="num2" placeholder="Введите число"><br>
 			<input type="submit" name="submit2">
 		</form>
 <?php
 	if (isset($_REQUEST['submit2'])) {
-		$num1 = $_REQUEST['num2-1'];
-		$num2 = $_REQUEST['num2-2'];
-		echo 'cумма чисел '.$num1. ' и '.$num2.' равен: '.func2($num1,$num2);
-
+		$num2 = $_REQUEST['num2'];
 	}
-	function func2($num1,$num2){
-		return  $num1+$num2;
+
+	$flag2 = false;
+	for ($i = 2; $i < $num2; $i++) {
+		if ($num2 % $i == 0) {
+			$flag2 = true;
+			break;
+		}
+	}
+
+	if ($flag2 == true) {
+		echo 'число непростое';
+	} else {
+		echo 'число простое';
 	}
 ?>
 	</div><br>
-
 
 
 <!--      -------- Task3-----------         -->
-	<span>task3.</span>
+	<span>task3.есть ли в массиве два одинаковых числа подряд</span>
 	<div class="window">
-		<form action="" method="GET">
-			<input type="text" name="num3-1" placeholder="Введите число"><br>
-			<input type="text" name="num3-2" placeholder="Введите число"><br>
-			<input type="text" name="num3-3" placeholder="Введите число"><br>
-			<input type="submit" name="submit3">
-		</form>
 <?php
-	if (isset($_REQUEST['submit3'])) {
-		$num1 = $_REQUEST['num3-1'];
-		$num2 = $_REQUEST['num3-2'];
-		$num3 = $_REQUEST['num3-3'];
-		echo 'разность чисел '.$num1. ' и '.$num2.' делённый на '.$num3.' равен: '.func3($num1,$num2,$num3);
+	$arr = array(1, 2, 3, 3, 4, 5, 5);
+	$flag = false;
+	foreach ($arr as $key=>$elem) {
+		if ($key > 0 and $elem == $arr[$key - 1]) {
+			$flag = true;
+			break;
+		}
+	}
 
-	}
-	function func3($num1,$num2,$num3){
-		return  ($num1-$num2)/$num3;
-	}
-?>
-	</div><br>
-<!--      -------- Task4-----------         -->
-	<span>task4.день недели</span>
-	<div class="window">
-		<form action="" method="GET">
-			<input type="text" name="num4" placeholder="Введите число от 1 до 7"><br>
-			<input type="submit" name="submit4">
-		</form>
-<?php
-	if (isset($_REQUEST['submit4'])) {
-		$num = $_REQUEST['num4'];
-		echo 'сегодня '.func4($num);
-
-	}
-	function func4($num){
-		$arr = array(1=>'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
-		return $arr[$num];
+	if ($flag == true) {
+		echo 'да';
+	} else {
+		echo 'нет';
 	}
 ?>
 	</div><br>

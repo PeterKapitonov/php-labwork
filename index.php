@@ -8,178 +8,90 @@
 </head>
 <body>
 	                   
-	<h3>Задачи на даты в PHP</h3><br><span>task1.текущее время в формате timestamp</span><div class="window">
+	<h3>Задачи на пользовательские функции</h3><br>
+	<span>task1.</span>
+	<div class="window">
+		<form action="" method="GET">
+			<input type="text" name="num1" placeholder="Введите число"><br>
+			<input type="submit" name="submit1">
+		</form>
 <?php
-	echo time();
-?>	
+	if (isset($_REQUEST['submit1'])) {
+		$num = $_REQUEST['num1'];
+		echo 'квадрат числа '.$num.' равен: '.func1($num);
+
+	}
+	function func1($num){
+		return  $num*$num;
+	}
+?>
 	</div><br>
 
 
 <!--      -------- Task2-----------         -->
-	<span>task2.1 марта 2025 года в формате timestamp</span>
+	<span>task2.</span>
 	<div class="window">
+		<form action="" method="GET">
+			<input type="text" name="num2-1" placeholder="Введите число"><br>
+			<input type="text" name="num2-2" placeholder="Введите число"><br>
+			<input type="submit" name="submit2">
+		</form>
 <?php
-	echo mktime(0, 0, 0, 3, 1, 2025);
-?>		
+	if (isset($_REQUEST['submit2'])) {
+		$num1 = $_REQUEST['num2-1'];
+		$num2 = $_REQUEST['num2-2'];
+		echo 'cумма чисел '.$num1. ' и '.$num2.' равен: '.func2($num1,$num2);
+
+	}
+	function func2($num1,$num2){
+		return  $num1+$num2;
+	}
+?>
 	</div><br>
+
 
 
 <!--      -------- Task3-----------         -->
-	<span>task3.31 декабря текущего года в формате timestamp</span>
+	<span>task3.</span>
 	<div class="window">
+		<form action="" method="GET">
+			<input type="text" name="num3-1" placeholder="Введите число"><br>
+			<input type="text" name="num3-2" placeholder="Введите число"><br>
+			<input type="text" name="num3-3" placeholder="Введите число"><br>
+			<input type="submit" name="submit3">
+		</form>
 <?php
-	echo mktime(0, 0, 0, 12, 31);
+	if (isset($_REQUEST['submit3'])) {
+		$num1 = $_REQUEST['num3-1'];
+		$num2 = $_REQUEST['num3-2'];
+		$num3 = $_REQUEST['num3-3'];
+		echo 'разность чисел '.$num1. ' и '.$num2.' делённый на '.$num3.' равен: '.func3($num1,$num2,$num3);
+
+	}
+	function func3($num1,$num2,$num3){
+		return  ($num1-$num2)/$num3;
+	}
 ?>
 	</div><br>
-
 <!--      -------- Task4-----------         -->
-	<span>task4.количество секунд, прошедших с 13:12:59 15-го марта 2000 года до настоящего момента времени.</span>
-	<div class="window">
-<?php
-	echo time() - mktime(13, 12, 59, 3, 15, 2000);
-?>
-	</div><br>
-
-<!--      -------- Task5-----------         -->
-	<span>task5.количество целых часов, прошедших с 7:23:48 текущего дня до настоящего момента времени</span>
-	<div class="window">
-<?php
-	$sec = time() - mktime(7, 23, 48); //количество часов
-	echo floor($sec / (60 * 60));
-?>
-	</div><br>
-
-<!--      -------- Task6-----------         -->
-	<span>task6.текущий год, месяц, день, час, минута, секунда</span>
-	<div class="window">
-<?php
-	echo date('Y.m.d H:i:s');
-?>
-	</div><br>
-
-<!--      -------- Task7-----------         -->
-	<span>task7.текущая дата-время в форматах '2025-12-31', '31.12.2025', '31.12.13', '12:59:59'</span>
-	<div class="window">
-<?php
-	echo date('Y-m-d').'<br>'; //в формате '2025-12-31'
-	echo date('d.m.Y').'<br>'; //в формате '31.12.2025'
-	echo date('d.m.y').'<br>'; //в формате '31.12.13'
-	echo date('H:i:s').'<br>'; //в формате '12:59:59'
-?>
-	</div><br>
-
-<!--      -------- Task8-----------         -->
-	<span>task8.12 февраля 2025 года в формате '12.02.2025'</span>
-	<div class="window">
-<?php
-	echo date('d.m.Y',  mktime(0, 0, 0, 2, 12, 2025));
-?>
-	</div><br>
-
-<!--      -------- Task9-----------         -->
-	<span>task9. какой день недели был 06.06.2006</span>
-	<div class="window">
-<?php
-	$week = array('вс', 'пн', 'вт', 'ср','чт', 'пт', 'сб');
-	echo $week[date('w',  mktime(0, 0, 0, 1, 1, 1))];
-?>
-	</div><br>
-
-<!--      -------- Task10-----------         -->
-	<span>task10.название текущего месяца</span>
-	<div class="window">
-<?php
-	$month = array(
-		1=>'янв', 'фев', 'мар', 'апр', 'май', 'июнь',
-		'июль', 'авг', 'сен', 'окт', 'ноя', 'дек'
-	);
-	echo $month[date('n')];
-?>
-	</div><br>
-
-<!--      -------- Task11-----------         -->
-	<span>task11.количество дней в текущем месяце</span>
-	<div class="window">
-<?php
-	echo date('t');
-?>
-	</div><br>
-
-<!--      -------- Task12-----------         -->
-	<span>task12.скрипт определяет високосный ли год</span>
+	<span>task4.день недели</span>
 	<div class="window">
 		<form action="" method="GET">
-			<input type="text" name="year12" placeholder="введите год">
-			<input type="submit">
+			<input type="text" name="num4" placeholder="Введите число от 1 до 7"><br>
+			<input type="submit" name="submit4">
 		</form>
 <?php
-	if (isset($_REQUEST['year12'])) {
-		$year = $_REQUEST['year12'];
-		if (date('L', mktime(0, 0, 0, 1, 1, $year)) == 1) {
-			echo 'год високосный';
-		} else {
-			echo 'год не високосный';
-		}
+	if (isset($_REQUEST['submit4'])) {
+		$num = $_REQUEST['num4'];
+		echo 'сегодня '.func4($num);
+
+	}
+	function func4($num){
+		$arr = array(1=>'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
+		return $arr[$num];
 	}
 ?>
 	</div><br>
 
-<!--      -------- Task13-----------         -->
-	<span>task13.дата в формате '31.12.2025'.</span>
-	<div class="window">
-		<form action="" method="GET">
-			<input type="text" name="date13" placeholder="31.12.2025">
-			<input type="submit">
-		</form>
-<?php
-	if (isset($_REQUEST['date13'])) {
-		$date = explode('.', $_REQUEST['date13']);
-		$week = array('вс', 'пн', 'вт', 'ср','чт', 'пт', 'сб');
-		echo $week[date('w',  mktime(0, 0, 0, $date[1], $date[0], $date[2]))];
-	}
-?>
-	</div><br>
-
-<!--      -------- Task14-----------         -->
-	<span>task14.После ввода даты в формате '2025-12-31' выдаёт месяц словом.</span>
-	<div class="window">
-		<form action="" method="GET">
-			<input type="text" name="date14" placeholder="2025-12-31">
-			<input type="submit">
-		</form>
-<?php
-	if (isset($_REQUEST['date14'])) {
-		$date = explode('-', $_REQUEST['date14']);
-		$month = array(
-			1=>'янв', 'фев', 'мар', 'апр', 'май', 'июнь',
-			'июль', 'авг', 'сен', 'окт', 'ноя', 'дек'
-		);
-		echo $month[date('n',  mktime(0, 0, 0, $date[1], $date[2], $date[0]))];
-	}
-?>
-
-	</div><br>
-
-<!--      -------- Task15-----------         -->
-	<span>task15.форма, которая спрашивает две даты в формате '2025-12-31'.сравнивает, какая из введенных дат больше.</span>
-	<div class="window">
-		<form action="" method="GET">
-			<input type="text" name="date15-1" placeholder="2025-12-31"><br>
-			<input type="text" name="date15-2" placeholder="2025-12-31"><br>
-			<input type="submit">
-		</form>
-<?php
-	if (isset($_REQUEST['date15-1']) and isset($_REQUEST['date15-2'])) {
-		$date1 = $_REQUEST['date15-1'];
-		$date2 = $_REQUEST['date15-2'];
-		if ($date1 > $date2) {
-			echo $date1;
-		} else {
-			echo $date2;
-		}
-	}
-?>
-
-	</div><br>
 </body>
 </html>

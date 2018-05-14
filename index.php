@@ -8,83 +8,77 @@
 </head>
 <body>
 	                   
-	<h3>Задачи на приемы работы с флагами на PHP</h3><br>
-	<span>task1.Проверка что в массиве есть введённое число</span>
+	<h3>Задачи на приемы работы с логическими значениями</h3><br>
+	<span>task1.равны ли числа</span>
 	<div class="window">
 		<form action="" method="GET">
-			<input type="text" name="num1" placeholder="Введите число"><br>
+			<input type="text" name="num1-1" placeholder="Введите число"><br>
+			<input type="text" name="num1-2" placeholder="Введите число"><br>
 			<input type="submit" name="submit1">
 		</form>
 <?php
 	if (isset($_REQUEST['submit1'])) {
-		$num = $_REQUEST['num1'];
+		$num1_1 = $_REQUEST['num1-1'];
+		$num2_1 = $_REQUEST['num1-2'];
 	}
 
-	$arr = array(1, 4, 6, 10, 11, 5, 8);
-	foreach ($arr as $elem) {
-		if ($elem == $num) {
-			$flag = true;
-			break;
+	echo func1($num1_1,$num2_1);
+	function func1($a, $b){
+		if($a == $b){
+			return 'равны';
 		}else{
-			$flag = false;
+			return 'неравны';
 		}
-	}
-
-	if ($flag == true) {
-		echo 'есть';
-	} else {
-		echo 'нет';
 	}
 ?>
 	</div><br>
 
 
 <!--      -------- Task2-----------         -->
-	<span>task2.Проверка что число простое</span>
+	<span>task2.проверка что сумма двух чисел больше 10</span>
 	<div class="window">
 		<form action="" method="GET">
-			<input type="text" name="num2" placeholder="Введите число"><br>
+			<input type="text" name="num2-1" placeholder="Введите число"><br>
+			<input type="text" name="num2-2" placeholder="Введите число"><br>
 			<input type="submit" name="submit2">
 		</form>
 <?php
 	if (isset($_REQUEST['submit2'])) {
-		$num2 = $_REQUEST['num2'];
+		$num1_2 = $_REQUEST['num2-1'];
+		$num2_2 = $_REQUEST['num2-2'];
 	}
 
-	$flag2 = false;
-	for ($i = 2; $i < $num2; $i++) {
-		if ($num2 % $i == 0) {
-			$flag2 = true;
-			break;
+	echo func2($num1_2,$num2_2);
+	function func2($a, $b){
+		if($a + $b<10){
+			return 'не больше';
+		}else{
+			return 'больше';
 		}
-	}
-
-	if ($flag2 == true) {
-		echo 'число непростое';
-	} else {
-		echo 'число простое';
 	}
 ?>
 	</div><br>
 
 
 <!--      -------- Task3-----------         -->
-	<span>task3.есть ли в массиве два одинаковых числа подряд</span>
+	<span>task3.проверка на положительность</span>
 	<div class="window">
+		<form action="" method="GET">
+			<input type="text" name="num3" placeholder="Введите число"><br>
+			<input type="submit" name="submit3">
+		</form>
 <?php
-	$arr = array(1, 2, 3, 3, 4, 5, 5);
-	$flag = false;
-	foreach ($arr as $key=>$elem) {
-		if ($key > 0 and $elem == $arr[$key - 1]) {
-			$flag = true;
-			break;
-		}
+	if (isset($_REQUEST['submit3'])) {
+		$num3 = $_REQUEST['num3'];
 	}
 
-	if ($flag == true) {
-		echo 'да';
-	} else {
-		echo 'нет';
+	echo func3($num3);
+	function func3($a){
+		if($a<0){
+			return 'отрицательный';
+		}else{
+			return 'положительный';
+		}
 	}
 ?>
 	</div><br>
